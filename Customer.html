@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title> Global Squash Club</title>
+</head>
+
+ <meta name="viewport" content="width=device-width, initial-scale=1">  
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">  
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>  
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>  
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<style>
+
+.Hello h4{
+	margin-top: 25px;
+	margin-left: 25px;
+	font-size:100px;
+}
+
+#login{
+	margin-top:25px;
+	margin-left:25px;
+}
+#comment{
+	margin-top:50px;
+	margin-left:25px;
+	border-top:3px solid black
+
+}
+
+table, th, td {
+ 	border: 1px solid black;
+ }
+ th,td {
+ 	padding:2px;
+ }
+ th {
+  text-align: left;
+}
+.course{ 
+	margin-top:25px;
+	margin-left:25px;
+	margin-right:10%;
+	border:2px solid black;
+	padding:15px;
+	width:;
+
+}
+
+#c002 , #c001{
+	display:none;
+}
+
+</style>
+<script>
+	function myFunction() {
+		var c001 = document.getElementById("c001")
+		var c002 = document.getElementById("c002")
+		var course = document.querySelector('input[name="courseChoice"]:checked').value;
+
+		if (course == "saturday") {
+			c001.style.display = "block";
+			c002.style.display = "none";
+
+		} 
+		else if  (course == "sunday"){
+			c002.style.display = "block";
+			c001.style.display = "none";
+
+		}
+		
+	}
+</script>
+<body>
+
+
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+
+	<a class="navbar-brand" href="{{url_for('index')}}">GlobalSquashClub</a>
+	<a class="navbar-brand" href ="{{url_for('logout')}}">Logout</a>
+	<!--Toggle/collapsible.button-->
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+</nav>
+
+<div class="Hello">
+<<h4><b>Welcome my {{session['name']}} !!</b></h4>
+</div>
+
+<div id="login" class="col-sm">
+		<ins><h1>Training Register</h1></ins>
+		
+<div class="course">
+<table style="width:80%">
+	<tr>
+		<th></th>
+		<th>Course Code</th>
+		<th>Date & Time</th> 
+		<th>Seat Availible</th>
+	</tr>
+	
+  	<tr>
+    	<td><input type="radio" class="customer-control-input" name="courseChoice" id="saturday" value="saturday" onchange="myFunction()" required></td>
+    	<td>001</td>
+    	<td></td>
+    	<td>20</td>
+  	<tr>
+  		<td><input type="radio" class="customer-control-input" name="courseChoice" id="sunday" value="sunday" onchange="myFunction()"></td>
+    	<td>002</td>
+    	<td></td>
+    	<td>20</td>
+  	</tr>
+-->
+</table>
+
+<br><br>
+<form action="http://localhost:5000/courseC001Register", method = "POST">
+	<div class="course" id="c001">
+		<p>training venue:Court 01 & 02 & 03</p>
+		<p>Coaches: Anothony So, Helen Cheung & Ida Cheung</p>
+		<div class="form-group">
+			<label for="userName">userName: </label>
+			<input type="userName" class="from-control" id="userName" name="userName">
+		</div>
+		<button type="submit" class="btn btn-success">GO</button>{{errorMessage}}
+	</div>
+</form>
+<form action="http://localhost:5000/courseC002Register", method = "POST">
+	<div class="course" id="c002">
+		<p>training venue: Court 05 & 06 & 07</p>
+		<p>Coaches: Anothony So, Kelvin Chan & Hayton Ip</p>
+		<div class="form-group">
+			<label for="userName">userName: </label>
+			<input type="userName" class="from-control" id="userNames" name="userNames">
+		</div>
+		<button type="submit" class="btn btn-success">Go</button>{{errorMessage}}
+	</div>
+</form>
+
+
+
+	
+
+</div>
+</body>
+
+</html>

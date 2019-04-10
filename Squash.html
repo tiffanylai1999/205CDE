@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title> Global Squash Club</title>
+</head>
+
+ <meta name="viewport" content="width=device-width, initial-scale=1">  
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">  
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>  
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>  
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<style>
+
+#page{
+	margin-top:25px;
+	margin-left:25px;
+}
+
+
+</style>
+
+<body>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+
+	<a class="navbar-brand" href="{{url_for('index')}}">GlobalSquashClub</a>
+	<!--Toggle/collapsible.button-->
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+	<!--links-->
+	<div class="collapse navbar-collapse" id=collapsibleNavbar>
+	<ul class="navbar-nav">
+		<li class="nav-item">
+			<a class="nav-link" href="{{url_for('aboutUs')}}">About Us</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" href="{{url_for('squash')}}">Squash</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" href="{{url_for('coaches')}}">Coaches</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" href="{{url_for('training')}}">Training</a>
+		</li>
+
+		<!--Dropdown-->
+		<li class="nav-item dropdown">
+			<a class="nav-link dropdown-toggle" href="Competition.html" id="navbardrop" data-toggle="dropdown">Competition</a>
+			<div class="dropdown-menu">
+				<a class="dropdown-item" href="http://www.hksquashopen.com/home.php" Target="_blank">Hong Kong Squash Open</a>
+				<a class="dropdown-item" href="http://www.hksquash.org.hk/en/competition_international.php?id=78" Target="_blank">Hong Kong Junior Squash Open 2018</a>	
+				<a class="dropdown-item" href="http://www.hksquash.org.hk/en/competition_junior.php?id=81" Target="_blank">BSS HONG KONG JUNIOR SQUASH CHAMPIONSHIPS 2018</a>
+							
+			</div>
+		</li>
+		<li class="nav-item dropdown">
+			<a class="nav-link dropdown-toggle" href="Link.html" id="navbardrop" data-toggle="dropdown" >Links</a>
+			<div class="dropdown-menu">
+				<a class="dropdown-item" href="http://www.hksquash.org.hk/en/index.php" Target="_blank">Hong Kong Squash</a>
+				<a class="dropdown-item" href="http://www.hksquash.org.hk/en/leagues_hm.php" Target="_blank">Lengue</a>	
+				<a class="dropdown-item" href="https://psaworldtour.com" Target="_blank">Professional Squash Association (PSA)</a>	
+				<a class="dropdown-item" href="http://www.worldsquash.org	" Target="_blank">World Squash Federation(WSF)</a>					
+			</div>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" href="{{url_for('contactUs')}}">Contact Us</a>
+		</li>
+	</ul>
+</div>
+</nav>
+
+<!--Content-->
+<div id="page">
+	<ins><h1>Squash</h1></ins>
+
+	<h3>What is Squash?</h3>
+	<ul>Squash is one of the best sports in the world for developing both cardio and muscular strength. During a typical 45-minute session, players can expect to burn up to 1,000 calories, exercise all the muscles of the body from the arms (ball striking) to the legs (lunging) and the core (stabilising) whilst playing a competitive, endorphin-bosting game.</ul>
+	<ul>Combined with the physical demands, squash requires fine skills (ball placement and shot deception) tactical skills (ball positioning and building of rallies) and serves as a supermen test of physical and mental reactions, with the ball frequently reaching speeds upwards of 170mph whilst players jostle and manoeuvre for supremacy of the court.</ul>
+	<ul>Squash is principally a two-person game, but you can play doubles, as a three or with many more people on court at the same time by playing condition games – such as only using three-quarters or the court floor for play, while the non-active players rest in the non-playable quarter.</ul>
+
+	<h3>Games Rules: </h3>
+	
+	<p><img src="{{url_for('static', filename='singlessquashcourt.jpg')}}" alt="Trulli" width="1000" height="1000"></p>
+
+	<h3>Games' Term: </h3>
+	<ol>Boast : A shot played so that the ball hits the side wall before hitting the front wall.</ol>
+	<ol>Lob : A shot played so that the ball hangs high in the air and falls almost vertically to die in the back corners.</ol>
+	<ol>Drop Shot : The drop shot is a delicately placed stroke that lands close to the front wall.</ol>
+	<ol>Volley : A ball hit before it bounces, either on the forehand or backhand side.</ol>
+	<ol>Length & width : In squash, the players will try to hit the ball close to either walls (width) and to the back of the court (length).</ol>
+	<ol>Nick : It is the junction between two walls or between the wall and the floor where the ball dies immediately.</ol>
+	<ol>T-position : It is the area at the junction of the short line and the half-court line.</ol>
+	<br>
+	<ol>Let : When one player interferes with the other's choice of movement to the ball or with the other's clear path for movement, he/she can call out loud 'let'. When a let is called and given, the rally does not count and is replayed. Stroke to (Name of player) : A call made by the Referee when one player interferes with the other's choice of movement to the ball or with the other's clear path for movement. The player named is to be awarded a stroke and wins that rally.</ol>
+	<ol>Not up : When the ball is not struck correctly by the server or striker; OR when the ball bounces more than once upon the floor before being struck by the striker: OR when the ball touches the striker or anything he wears or carries other than his racket.</ol>
+	<ol>Down : When the ball hits the tin or board.</ol>
+
+</div>
+
+
+</body>
+</html>
+
+
+
+

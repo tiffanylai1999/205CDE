@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title> Global Squash Club</title>
+</head>
+
+ <meta name="viewport" content="width=device-width, initial-scale=1">  
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">  
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>  
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>  
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+ 
+ <style>
+ table, th, td {
+ 	border: 1px solid black;
+ }
+ th,td {
+ 	padding:2px;
+ }
+ th {
+  text-align: left;
+}
+#page{
+	margin-top:25px;
+	margin-left:25px;
+}
+
+</style>
+
+
+<body>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+
+	<a class="navbar-brand" href="{{url_for('index')}}">GlobalSquashClub</a>
+	<!--Toggle/collapsible.button-->
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+	<!--links-->
+	<div class="collapse navbar-collapse" id=collapsibleNavbar>
+	<ul class="navbar-nav">
+		<li class="nav-item">
+			<a class="nav-link" href="{{url_for('aboutUs')}}">About Us</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" href="{{url_for('squash')}}">Squash</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" href="{{url_for('coaches')}}">Coaches</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" href="{{url_for('training')}}">Training</a>
+		</li>
+
+		<!--Dropdown-->
+		<li class="nav-item dropdown">
+			<a class="nav-link dropdown-toggle" href="Competition.html" id="navbardrop" data-toggle="dropdown">Competition</a>
+			<div class="dropdown-menu">
+				<a class="dropdown-item" href="http://www.hksquashopen.com/home.php" Target="_blank">Hong Kong Squash Open</a>
+				<a class="dropdown-item" href="http://www.hksquash.org.hk/en/competition_international.php?id=78" Target="_blank">Hong Kong Junior Squash Open 2018</a>	
+				<a class="dropdown-item" href="http://www.hksquash.org.hk/en/competition_junior.php?id=81" Target="_blank">BSS HONG KONG JUNIOR SQUASH CHAMPIONSHIPS 2018</a>
+							
+			</div>
+		</li>
+		<li class="nav-item dropdown">
+			<a class="nav-link dropdown-toggle" href="Link.html" id="navbardrop" data-toggle="dropdown" >Links</a>
+			<div class="dropdown-menu">
+				<a class="dropdown-item" href="http://www.hksquash.org.hk/en/index.php" Target="_blank">Hong Kong Squash</a>
+				<a class="dropdown-item" href="http://www.hksquash.org.hk/en/leagues_hm.php" Target="_blank">Lengue</a>	
+				<a class="dropdown-item" href="https://psaworldtour.com" Target="_blank">Professional Squash Association (PSA)</a>	
+				<a class="dropdown-item" href="http://www.worldsquash.org	" Target="_blank">World Squash Federation(WSF)</a>					
+			</div>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" href="{{url_for('contactUs')}}">Contact Us</a>
+		</li>
+	</ul>
+</div>
+</nav>
+
+<!--Content-->
+<div id="page">
+	<ins><h1>Training Schedule</h1></ins>
+	<p>Monthly Training schedule</p>
+
+<div class="course">
+<table style="width:80%">
+  <tr>
+    <th>Course Code</th>
+    <th>Training Date & Time</th> 
+    <th>Coaches</th>
+    <th>Seats Available</th>
+  </tr>
+  {% for i in range(course.courseCode|length) %}
+  <tr>
+    <td>{{course.courseCode[i]}}</td>
+    <td>{{course.date[i]}} </td>
+    <td>{{course.coaches[i]}}</td>
+    <td>{{course.avaliable_seats[i]}}</td>
+  </tr>
+    {% endfor %}
+  
+  
+</table>
+</div>
+
+
+<br>
+
+<p>Venue 場地:     Aberdeen Tennis and Squash Centre 香港仔網球及壁球中心 </p>
+<p>Duration: 2 hrs </p>
+<p>Training fee per session: $200 (by cash)</p>
+</div>
+
+
+</body>
+</html>
+
+
+
+
