@@ -16,16 +16,18 @@
 .Hello h4{
 	margin-top: 25px;
 	margin-left: 25px;
-	font-size:100px;
+	margin-bottom:50px;
+	font-size:90px;
 }
 
 #login{
 	margin-top:25px;
 	margin-left:25px;
 }
-#comment{
+#commentPage{
 	margin-top:50px;
 	margin-left:25px;
+	margin-bottom:200px;
 	border-top:3px solid black
 
 }
@@ -38,43 +40,10 @@ table, th, td {
  }
  th {
   text-align: left;
-}
-.course{ 
-	margin-top:25px;
-	margin-left:25px;
-	margin-right:10%;
-	border:2px solid black;
-	padding:15px;
-	width:;
-
-}
-
-#c002 , #c001{
-	display:none;
-}
+ }
 
 </style>
-<script>
-	function myFunction() {
-		var c001 = document.getElementById("c001")
-		var c002 = document.getElementById("c002")
-		var course = document.querySelector('input[name="courseChoice"]:checked').value;
-
-		if (course == "saturday") {
-			c001.style.display = "block";
-			c002.style.display = "none";
-
-		} 
-		else if  (course == "sunday"){
-			c002.style.display = "block";
-			c001.style.display = "none";
-
-		}
-		
-	}
-</script>
 <body>
-
 
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
 
@@ -84,66 +53,95 @@ table, th, td {
 	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
 		<span class="navbar-toggler-icon"></span>
 	</button>
+
 </nav>
 
 <div class="Hello">
-<<h4><b>Welcome my {{session['name']}} !!</b></h4>
+<h4><b>Welcome my {{session['name']}} !!</b></h4>
+
+
+
+<div id="coachRegister" class="col-sm">
+		<ins><h1>Coaches Register</h1></ins>
+		<form action="http://localhost:5000/coachRegisterSubmit", method = "POST">
+			<div class="form-group">
+				<label for="name">Name: </label>
+				<input type="name" class="from-control" id="name" name="name">
+			</div>
+			<div class="form-group">
+				<label for="phone">Phone: </label>
+				<input type="phone" class="from-control" id="phone" name="phone">
+			</div>
+			<div class="form-group">
+				<label for="email">Email address: </label>
+				<input type="email" class="from-control" id="email" name="email">
+			</div>
+			<div class="form-group">
+				<label for="year_of_teaching">Year of teaching: </label>
+				<input type="year_of_teaching" class="from-control" id="year_of_teaching" name="year_of_teaching">
+			</div>
+			<div class="form-group">
+				<label for="coach_level">Coach Level: </label>
+				<input type="coach_level" class="from-control" id="coach_level" name="coach_level">
+			</div>
+			<button type="submit" class="btn btn-success">Submit</button>
+		</form>
 </div>
 
-<div id="login" class="col-sm">
-		<ins><h1>Training Register</h1></ins>
-		
-<div class="course">
-<table style="width:80%">
-	<tr>
-		<th></th>
-		<th>Course Code</th>
-		<th>Date & Time</th> 
-		<th>Seat Availible</th>
-	</tr>
-	
-  	<tr>
-    	<td><input type="radio" class="customer-control-input" name="courseChoice" id="saturday" value="saturday" onchange="myFunction()" required></td>
-    	<td>001</td>
-    	<td></td>
-    	<td>20</td>
-  	<tr>
-  		<td><input type="radio" class="customer-control-input" name="courseChoice" id="sunday" value="sunday" onchange="myFunction()"></td>
-    	<td>002</td>
-    	<td></td>
-    	<td>20</td>
-  	</tr>
--->
-</table>
-
 <br><br>
-<form action="http://localhost:5000/courseC001Register", method = "POST">
-	<div class="course" id="c001">
-		<p>training venue:Court 01 & 02 & 03</p>
-		<p>Coaches: Anothony So, Helen Cheung & Ida Cheung</p>
-		<div class="form-group">
-			<label for="userName">userName: </label>
-			<input type="userName" class="from-control" id="userName" name="userName">
-		</div>
-		<button type="submit" class="btn btn-success">GO</button>{{errorMessage}}
+
+<div id="userRegister" class="col-sm">
+		<ins><h1>User Register</h1></ins>
+		<form action="http://localhost:5000/userRegisterSubmit", method = "POST">
+			<div class="form-group">
+				<label for="name">Name: </label>
+				<input type="name" class="from-control" id="name" name="name">
+			</div>
+			<div class="form-group">
+				<label for="phone">Phone: </label>
+				<input type="phone" class="from-control" id="phone" name="phone">
+			</div>
+			<div class="form-group">
+				<label for="email">Email address: </label>
+				<input type="email" class="from-control" id="email" name="email">
+			</div>
+			<div class="form-group">
+				<label for="date_of_birth">Date of birth: </label>
+				<input type="date" class="from-control" id="date_of_birth" name="date_of_birth" Placeholder="YYYY-MM-DD">
+			</div>
+			<div class="form-group">
+				<label for="userType">User Type: </label>
+				<input type="radio" class="from-control" id="employee" name="userType" value = "employee" required>employee
+				<input type="radio" class="from-control" id="customer" name="userType" value = "customer" >customer
+			</div>
+			<div class="form-group">
+				<label for="password">password: </label>
+				<input type="password" class="from-control" id="password" name="password">
+			</div>
+			<button type="submit" class="btn btn-success">Submit</button>
+		</form>
 	</div>
-</form>
-<form action="http://localhost:5000/courseC002Register", method = "POST">
-	<div class="course" id="c002">
-		<p>training venue: Court 05 & 06 & 07</p>
-		<p>Coaches: Anothony So, Kelvin Chan & Hayton Ip</p>
-		<div class="form-group">
-			<label for="userName">userName: </label>
-			<input type="userName" class="from-control" id="userNames" name="userNames">
-		</div>
-		<button type="submit" class="btn btn-success">Go</button>{{errorMessage}}
+<br><br>
+
+<div id="commentPage" >
+	<ins><h1>View Comment</h1></ins><br>
+<table style="width:80%">
+	<div class ="commentPage">
+	<tr>
+	    <th>Name:</th> 
+	    <th>Email:</th>
+	    <th>Comments:</th>
+	 </tr>
+		{% for i in range(commentPage|length) %}
+	<tr>
+	    <td>{{commentPage["commentName"][i]}}</td>
+	    <td> {{commentPage["commentEmail"][i]}}</td>
+	    <td>{{commentPage["commentInfo"][i]}}</td>
+	</tr>
+	{% endfor %}
+
 	</div>
-</form>
-
-
-
-	
-
+</table>
 </div>
 </body>
 
