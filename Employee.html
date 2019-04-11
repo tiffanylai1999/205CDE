@@ -132,11 +132,11 @@ table, th, td {
 	    <th>Email:</th>
 	    <th>Comments:</th>
 	 </tr>
-	{% for row in commentPage %}	
+		{% for i in range(commentPage|length) %}
 	<tr>
-	    <td>{{row[1]}}</td>
-	    <td>{{row[2]}} </td>
-	    <td>{{row[3]}}</td>
+	    <td>{{commentPage["commentName"][i]}}</td>
+	    <td> {{commentPage["commentEmail"][i]}}</td>
+	    <td>{{commentPage["commentInfo"][i]}}</td>
 	</tr>
 	{% endfor %}
 
